@@ -1,10 +1,3 @@
-// apiKey: 'AIzaSyD5cZybQ_cYVWxl9Yg48FOb5CEj7QCC6Mc',
-// authDomain: 'cornershop-wheel.firebaseapp.com',
-// projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-// storageBucket: 'cornershop-wheel.appspot.com',
-// messagingSenderId: '560114000470',
-// appId: '1:560114000470:web:63bc2ce47aaae93a62d1f7',
-
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from "firebase/auth";
 
