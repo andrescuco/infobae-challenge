@@ -27,7 +27,15 @@ export default function Admin() {
   }, [db, fetchUsers, user]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <p>Loading...</p>;
+  }
+
+  if (!loading && !user) {
+    return (
+      <div>
+        <p>You must be signed in to access this page</p>
+      </div>
+    );
   }
 
   return (

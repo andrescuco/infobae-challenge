@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useFirebase } from "@/firebase";
 import styles from "../page.module.css";
 
-export default function Navbar() {
+export function Navbar() {
   const router = useRouter();
   const { user, googleSignIn, logOut } = useFirebase();
   const [loading, setLoading] = useState(true);

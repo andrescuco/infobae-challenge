@@ -6,7 +6,7 @@ import { Post } from "../../types";
 import { UserCard } from "./UserCard";
 import { PostTag } from "./PostTag";
 
-export default function PostContainer({ post }: { post: Post }) {
+export function PostContainer({ post }: { post: Post }) {
   const prettyPublishDate = new Date(post.publishDate).toLocaleDateString();
 
   return (
