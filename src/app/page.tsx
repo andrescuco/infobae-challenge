@@ -1,11 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { getPosts } from "../api";
+import { getPosts, getUsers, getPostsByTag } from "../api";
 
 export default async function Home() {
   const posts = await getPosts();
+  const users = await getUsers();
+  const postsWithWaterTag = await getPostsByTag('water');
 
-  console.log('posts', posts);
+  console.log('postsWithWaterTag', postsWithWaterTag);
 
   return (
     <main className={styles.main}>

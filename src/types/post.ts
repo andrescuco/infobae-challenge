@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export type Post = {
   id: string;
   image: string;
@@ -5,12 +7,6 @@ export type Post = {
   tags: string[];
   text: string;
   publishDate: string;
-  owner: {
-    id: string;
-    title: string;
-    firstName: string;
-    lastName: string;
-    picture: string;
-  };
+  owner: User;
 };
 
