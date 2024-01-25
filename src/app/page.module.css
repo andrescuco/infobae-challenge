@@ -23,6 +23,11 @@
   padding: 1rem;
 }
 
+.navbarOptions {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .postGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

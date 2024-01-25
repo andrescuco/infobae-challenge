@@ -13,17 +13,9 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   User,
-  getAuth,
 } from "firebase/auth";
 import {
   doc,
-  collection,
-  Firestore,
-  getDocs,
-  updateDoc,
-  increment,
-  query,
-  where,
   setDoc,
 } from "firebase/firestore";
 

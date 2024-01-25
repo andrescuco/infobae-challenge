@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
+
 import { getFirestoreUsersCollection } from "@/api";
-import { useFirebase } from "@/firebase";
 import { useCallback, useEffect, useState } from "react";
+import { useFirebase } from "@/firebase";
 
 export default function Admin() {
   const { db, user } = useFirebase();
@@ -12,12 +14,11 @@ export default function Admin() {
   const fetchUsers = useCallback(async () => {
     const users = await getFirestoreUsersCollection(db);
     setUsers(users);
-
+     
     return users;
   }, [db]);
 
   useEffect(() => {
-    setLoading(true);
     if (user) {
       fetchUsers();
     }
@@ -28,14 +29,28 @@ export default function Admin() {
     return <div>Loading...</div>;
   }
 
-  if (!user) {
-    return <div>Not authorized</div>;
-  }
-
   return (
     <div>
-      <h1>Admin</h1>
-      <p>{JSON.stringify(users)}</p>
+      <h1>All users (From Firestore Non-relational DB)</h1>
+      {users?.map((user: {
+        email: string;
+        photoURL: string;
+        name: string;
+      }) => {
+        return (
+          <div key={user.email}>
+            <Image
+              src={user.photoURL}
+              alt={`Picture of ${user.name}`}
+              width={40}
+              height={40}
+              priority
+            />
+            <p>{user.email}</p>
+            <p>{user.name}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
