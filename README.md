@@ -26,6 +26,10 @@ This is a React project using Next.js, it features:
 * Database persistance with Firestore + Google Sign In
 * Responsive design and CSS Modules
 
+Mobile Demo:
+
+https://github.com/andrescuco/infobae-challenge/assets/36432023/17091811-f833-4d74-8b60-23c2de7858de
+
 ## Commands:
 
 ```
