@@ -17,11 +17,11 @@ Account Management Demo:
    all accounts that have logged in with Google (protected view)
 6. You can also log out and the views and protected routes will update accordingly
 
-This is a Next.js project, it features:
+This is a React project using Next.js, it features:
 
 * Server-side requests and rendering, for faster loading times
 * Optimized fonts and images
-* Clean architecture folder structure: /api, /components, /firebase and /types
+* Clean architecture folder structure: /api (calls to Firestore and Dummy API), /components, /firebase (Non-relational DB configuration) and /types
 * Basic unit tests of common components, jest configuration to extend testing
 * Database persistance with Firestore + Google Sign In
 * Responsive design and CSS Modules
