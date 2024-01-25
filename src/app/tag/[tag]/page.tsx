@@ -1,6 +1,6 @@
 import { getPostsByTag } from "@/api";
 import styles from "../../page.module.css";
-import PostContainer from "../../components/PostContainer";
+import { PostContainer } from "../../components/PostContainer";
 
 export default async function TagPage({
   params,

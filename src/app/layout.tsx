@@ -3,7 +3,7 @@
 import "./globals.css";
 import FirebaseProvider from "@/firebase";
 import { Poppins } from "next/font/google";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin-ext"],

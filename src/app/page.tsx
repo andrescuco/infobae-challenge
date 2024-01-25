@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import PostContainer from "./components/PostContainer";
+import { PostContainer } from "./components/PostContainer";
 import { getPosts } from "../api";
 
 export default async function Home() {
