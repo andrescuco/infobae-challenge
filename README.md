@@ -1,6 +1,6 @@
 ## README
 
-Demo:
+Access the website through https://infobae-challenge.vercel.app. Short navigation demo:
 
 https://github.com/andrescuco/infobae-challenge/assets/36432023/080813d3-59e8-483a-9348-dec8ee480cc8
 
