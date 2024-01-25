@@ -17,7 +17,7 @@ import { Post } from '../types/post';
 /**
  * Lists all users from Firestore.
  */
-export const listFirestoreUsers = async () => {
+export const listFSUsers = async () => {
 };
 
 /**

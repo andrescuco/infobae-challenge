@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { getPostCommentsById, getPosts, getUsers, listFirestoreUsers } from "../api";
+import { getPostCommentsById, getPosts, getUsers } from "../api";
 import Navbar from "./components/Navbar";
 import PostContainer from "./components/PostContainer";
 
