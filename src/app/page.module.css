@@ -8,7 +8,6 @@
 
 .smallText {
   font-size: 0.8rem;
-  font-color: #ccc;
   font-weight: 700;
 }
 
@@ -16,7 +15,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #eee;
+  padding: 1rem;
 }
 
 .userCardContainer img {
@@ -24,16 +23,24 @@
 }
 
 .postContainer {
-  background-color: black;
+  background-color: #000!important;
+  color: #fff;
   margin: 2rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.postContainer:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .postContainer .postContent {
   display: flex;
-  background-color: red;
 }
 
 .postContainer .postContent p {
@@ -41,5 +48,9 @@
 }
 
 .postContainer .postMeta {
-  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ccc;
 }

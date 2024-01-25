@@ -29,7 +29,6 @@ export default function PostContainer({ post }: { post: Post }) {
 
   return (
     <div className={styles.postContainer}>
-      <span className={styles.smallText}>Author:</span>
       <UserCard user={post.owner} />
 
       <div className={styles.postContent}>
