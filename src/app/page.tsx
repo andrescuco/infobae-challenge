@@ -1,22 +1,23 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { getPosts, getUsers, getPostsByTag } from "../api";
+import Navbar from "./components/Navbar";
 
 export default async function Home() {
   const posts = await getPosts();
   const users = await getUsers();
   const postsWithWaterTag = await getPostsByTag('water');
 
-  console.log('postsWithWaterTag', postsWithWaterTag);
-
   return (
     <main className={styles.main}>
+      <Navbar />
       <div className={styles.description}>
         {/* <p> */}
         {/*   TestGet started by editing&nbsp; */}
         {/*   <code className={styles.code}>src/app/page.tsx</code> */}
         {/* </p> */}
         <div>
+        <button>Google Sign In</button>
           {/* <a */}
           {/*   href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" */}
           {/*   target="_blank" */}
