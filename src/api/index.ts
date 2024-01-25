@@ -42,6 +42,20 @@ export const getPostsByTag = async (tag: string) => {
 }
 
 /**
+ * Gets all comments for a post from the api given the post id.
+ */
+export const getPostCommentsById = async (id: string) => {
+  const response = await axios.get(`https://dummyapi.io/data/v1/post/${id}/comment`, {
+    headers: {
+      'app-id': '65b28c73dc8f890c84ea4e91',
+    },
+  })
+  const { data: dummyApiResponseData } = response.data;
+
+  return dummyApiResponseData;
+}
+
+/**
  * Gets all users from the api, requires the user to be logged in.
  */
 export const getUsers = async () => {
