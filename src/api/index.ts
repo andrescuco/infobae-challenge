@@ -24,7 +24,7 @@ export const getFirestoreUsersCollection = async (db: Firestore) => {
 export const getPosts = async () => {
   const response = await axios.get('https://dummyapi.io/data/v1/post', {
     headers: {
-      'app-id': '65b28c73dc8f890c84ea4e91',
+      'app-id': process.env.DUMMY_API_APP_ID,
     },
   })
   const { data: dummyApiResponseData } = response.data;
@@ -38,7 +38,7 @@ export const getPosts = async () => {
 export const getPostsByTag = async (tag: string) => {
   const response = await axios.get(`https://dummyapi.io/data/v1/tag/${tag}/post`, {
     headers: {
-      'app-id': '65b28c73dc8f890c84ea4e91',
+      'app-id': process.env.DUMMY_API_APP_ID,
     },
   })
   const { data: dummyApiResponseData } = response.data;
@@ -52,7 +52,7 @@ export const getPostsByTag = async (tag: string) => {
 export const getPostCommentsById = async (id: string) => {
   const response = await axios.get(`https://dummyapi.io/data/v1/post/${id}/comment`, {
     headers: {
-      'app-id': '65b28c73dc8f890c84ea4e91',
+      'app-id': process.env.DUMMY_API_APP_ID,
     },
   })
   const { data: dummyApiResponseData } = response.data;
@@ -66,7 +66,7 @@ export const getPostCommentsById = async (id: string) => {
 export const getUsers = async () => {
   const response = await axios.get('https://dummyapi.io/data/v1/user?limit=10', {
     headers: {
-      'app-id': '65b28c73dc8f890c84ea4e91',
+      'app-id': process.env.DUMMY_API_APP_ID,
     },
   })
   const { data: dummyApiResponseData } = response.data;
