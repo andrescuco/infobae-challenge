@@ -1,8 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "../page.module.css";
 import { Post } from "../../types/post";
 import { User } from "../../types/user";
+
+function PostTag({ tag }: { tag: string }) {
+  return (
+    <div className={styles.tag}>
+      <Link href={`/tag/${tag}`}>{tag}</Link>
+    </div>
+  );
+}
 
 function UserCard({ user }: { user: User }) {
   const uppercaseFirstLetter = (str: string) => {
@@ -29,26 +38,37 @@ export default function PostContainer({ post }: { post: Post }) {
 
   return (
     <div className={styles.postContainer}>
-      <UserCard user={post.owner} />
+      <Link href={`/comments/${post.id}`}>
+        <div>
+          <Image
+            className={styles.postImage}
+            src={post.image}
+            alt="Picture attached to the post"
+            width={270}
+            height={270}
+            priority
+          />
+        </div>
 
-      <div className={styles.postContent}>
-        <Image
-          src={post.image}
-          alt="Picture attached to the post"
-          width={90}
-          height={90}
-          priority
-        />
-        <p>{post.text}</p>
-      </div>
+        <div className={styles.postContent}>
+          <p>{post.text}</p>
+        </div>
+      </Link>
 
       <div className={styles.postMeta}>
-        <span>{prettyPublishDate}</span>
-        <span>Likes: {post.likes}</span>
-        <div>
+        <UserCard user={post.owner} />
+
+        <div className={styles.tagsContainer}>
           {post.tags.map((tag, idx) => (
-            <span key={idx}>{tag}</span>
+            <PostTag key={idx} tag={tag} />
           ))}
+        </div>
+
+        <div className={styles.metaData}>
+          <span>Published: {prettyPublishDate}</span>
+        </div>
+        <div className={styles.metaData}>
+          <span>Likes: {post.likes}</span>
         </div>
       </div>
     </div>

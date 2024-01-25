@@ -1,3 +1,4 @@
+/* Main */
 .main {
   display: flex;
   flex-direction: column;
@@ -6,11 +7,31 @@
   min-height: 100vh;
 }
 
-.smallText {
-  font-size: 0.8rem;
-  font-weight: 700;
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
 }
 
+/* Responsive grid */
+@media (max-width: 768px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .postGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.smallText {
+  font-size: 0.8rem;
+}
+
+/* UserCard */
 .userCardContainer {
   display: flex;
   align-items: center;
@@ -22,24 +43,35 @@
   border-radius: 50%;
 }
 
+/* Post */
 .postContainer {
   background-color: #000!important;
   color: #fff;
   margin: 2rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 270px;
 }
 
 .postContainer:hover {
-  cursor: pointer;
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+.postContainer span {
+  font-size: 0.8rem;
+}
+
+.postContainer .postImage {
+  cursor: pointer;
+  border-radius: 12px;
+}
+
 .postContainer .postContent {
+  cursor: pointer;
   display: flex;
 }
 
@@ -48,9 +80,33 @@
 }
 
 .postContainer .postMeta {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
   border-top: 1px solid #ccc;
+}
+
+.postContainer .metaData {
+  font-size: 0.8rem;
+  font-weight: 100;
+  padding-top: 0.5rem;
+}
+
+/* Tags */
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.tag:hover {
+  background-color: #fff;
+  color: #000;
 }
