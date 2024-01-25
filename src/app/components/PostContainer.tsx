@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../page.module.css";
 import { User, Post, Comment } from "../../types";
 
-function PostComment({ comment }: { comment: Comment }) {
+export function PostComment({ comment }: { comment: Comment }) {
   return (
     <div className={styles.postComment}>
       <div className={styles.postCommentHeader}>
@@ -25,7 +25,7 @@ function PostTag({ tag }: { tag: string }) {
   );
 }
 
-function UserCard({ user }: { user: User }) {
+export function UserCard({ user }: { user: User }) {
   const uppercaseFirstLetter = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };

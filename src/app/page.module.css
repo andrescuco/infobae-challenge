@@ -7,11 +7,46 @@
   min-height: 100vh;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar span {
+  padding: 1rem;
+}
+
+.navbar a {
+  padding: 1rem;
+}
+
 .postGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
+}
+
+.button {
+    background-color: transparent;
+  border: 3px solid #555;
+  color: #555;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555;
+  color: white;
 }
 
 /* Responsive grid */
@@ -45,14 +80,16 @@
 
 /* Post */
 .postContainer {
-  background-color: #000!important;
+  background-color: #000 !important;
   color: #fff;
   margin: 2rem;
   border: 1px solid #ccc;
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   max-width: 270px;
 }
 
@@ -103,10 +140,26 @@
   border-radius: 12px;
   border: 1px solid #ccc;
   padding: 0.5rem 1rem;
-  transition: background-color 0.1s ease, color 0.1s ease;
+  transition:
+    background-color 0.1s ease,
+    color 0.1s ease;
 }
 
 .tag:hover {
   background-color: #fff;
   color: #000;
+}
+
+/* Post comment */
+.postCommentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postComment {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
 }

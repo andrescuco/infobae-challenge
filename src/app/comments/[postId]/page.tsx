@@ -1,6 +1,7 @@
 import { getPostCommentsById } from "@/api";
+import { PostComment } from "@/app/components/PostContainer";
+import { Comment } from "@/types";
 import styles from "../../page.module.css";
-import Link from "next/link";
 
 export default async function CommentsPage({
   params,
@@ -9,12 +10,15 @@ export default async function CommentsPage({
     postId: string;
   };
 }) {
-  const posts = await getPostCommentsById(params.postId as string);
+  const comments = await getPostCommentsById(params.postId as string);
 
   return (
-    <div>
+    <div className={styles.postCommentsContainer}>
       <h1>Post comments</h1>
-      {JSON.stringify(posts)}
+      {comments.length === 0 && <p>No comments yet</p>}
+      {comments.map((comment: Comment) => {
+        return <PostComment key={comment.id} comment={comment} />;
+      })}
     </div>
   );
 }

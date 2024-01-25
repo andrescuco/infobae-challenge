@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { getFirestoreUsersCollection } from "@/api";
+import styles from "../page.module.css";
 import { useFirebase } from "@/firebase";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const { db, user, googleSignIn, logOut } = useFirebase();
+  const { user, googleSignIn, logOut } = useFirebase();
   const [loading, setLoading] = useState(true);
 
   const handleSignIn = async () => {
@@ -33,13 +34,22 @@ export default function Navbar() {
   }, [user]);
 
   return (
-    <div>
+    <div className={styles.navbar}>
       {user ? (
-        <button onClick={handleSignOut}>Sign Out</button>
+      <div>
+        <button className={styles.button} onClick={handleSignOut}>
+          Sign Out
+        </button>
+        <span>Hello, {user.displayName}</span>
+      </div>
       ) : (
-        <button onClick={handleSignIn}>Sign In</button>
+        <button className={styles.button} onClick={handleSignIn}>
+          {loading ? "Loading" : "Sign In"}
+        </button>
       )}
+      <div>
+        <Link href="/">Home</Link>
+      </div>
     </div>
-  )
-
-};
+  );
+}

@@ -1,7 +1,6 @@
 import { getPostsByTag } from "@/api";
 import styles from "../../page.module.css";
 import PostContainer from "../../components/PostContainer";
-import Link from "next/link";
 
 export default async function TagPage({
   params,
@@ -14,9 +13,6 @@ export default async function TagPage({
 
   return (
     <main className={styles.main}>
-      <div className={styles.goBack}>
-        <Link href="/">Home</Link>
-      </div>
       <h1>Posts with tag: {params.tag}</h1>
 
       <div className={styles.postGrid}>

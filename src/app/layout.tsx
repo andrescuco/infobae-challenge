@@ -1,13 +1,14 @@
-'use client'
+"use client";
 
 import "./globals.css";
 import FirebaseProvider from "@/firebase";
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
+import Navbar from "./components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
   weight: ["100", "400", "700"],
-})
+});
 
 export default function RootLayout({
   children,
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <FirebaseProvider>
-        <body className={poppins.className}>{children}</body>
+        <body className={poppins.className}>
+          <Navbar />
+          {children}
+        </body>
       </FirebaseProvider>
     </html>
   );
