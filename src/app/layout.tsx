@@ -4,8 +4,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import FirebaseProvider from "@/firebase";
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin-ext"],
+  weight: ["400", "700"],
+})
+
+// const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -20,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <FirebaseProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={poppins.className}>{children}</body>
       </FirebaseProvider>
     </html>
   );

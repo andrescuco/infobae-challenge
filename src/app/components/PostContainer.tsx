@@ -1,38 +1,57 @@
 import Image from "next/image";
 
+import styles from "../page.module.css";
 import { Post } from "../../types/post";
 import { User } from "../../types/user";
 
 function UserCard({ user }: { user: User }) {
-return (
-  <div>
+  const uppercaseFirstLetter = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+  const userFullName = `${uppercaseFirstLetter(user.title)} ${uppercaseFirstLetter(user.firstName)} ${uppercaseFirstLetter(user.lastName)}`;
+
+  return (
+    <div className={styles.userCardContainer}>
       <Image
         src={user.picture}
-        alt="User picture"
-        width={180}
-        height={37}
+        alt={`Picture of ${user.title} ${user.firstName} ${user.lastName}`}
+        width={40}
+        height={40}
         priority
       />
-    <span>{user.title} {user.firstName} {user.lastName}</span>
-  </div>
-)
-};
+      <span>{userFullName}</span>
+    </div>
+  );
+}
 
 export default function PostContainer({ post }: { post: Post }) {
+  const prettyPublishDate = new Date(post.publishDate).toLocaleDateString();
+
   return (
-    <div>
-      {post.tags.map((tag, idx) => <span key={idx}>{tag}</span>)}
-      <span>{post.likes}</span>
-      <p>{post.text}</p>
-      <span>{post.publishDate}</span>
-      <Image
-        src={post.image}
-        alt="Next.js Logo"
-        width={180}
-        height={37}
-        priority
-      />
+    <div className={styles.postContainer}>
+      <span className={styles.smallText}>Author:</span>
       <UserCard user={post.owner} />
+
+      <div className={styles.postContent}>
+        <Image
+          src={post.image}
+          alt="Picture attached to the post"
+          width={90}
+          height={90}
+          priority
+        />
+        <p>{post.text}</p>
+      </div>
+
+      <div className={styles.postMeta}>
+        <span>{prettyPublishDate}</span>
+        <span>Likes: {post.likes}</span>
+        <div>
+          {post.tags.map((tag, idx) => (
+            <span key={idx}>{tag}</span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
