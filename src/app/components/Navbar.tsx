@@ -1,10 +1,11 @@
 'use client';
 
+import { getFirestoreUsersCollection } from "@/api";
 import { useFirebase } from "@/firebase";
 import React, { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const { user, googleSignIn, logOut } = useFirebase();
+  const { db, user, googleSignIn, logOut } = useFirebase();
   const [loading, setLoading] = useState(true);
 
   const handleSignIn = async () => {

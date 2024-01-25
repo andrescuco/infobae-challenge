@@ -1,23 +1,21 @@
-// Use later for Firebase NoSQL
-// import {
-//   doc,
-//   collection,
-//   Firestore,
-//   getDocs,
-//   updateDoc,
-//   increment,
-//   query,
-//   where,
-// } from 'firebase/firestore';
+import {
+  collection,
+  Firestore,
+  getDocs,
+} from 'firebase/firestore';
 import axios from 'axios'
-import { auth } from '../firebase/firebaseConfig';
 
 import { Post } from '../types/post';
 
 /**
  * Lists all users from Firestore.
  */
-export const listFSUsers = async () => {
+export const getFirestoreUsersCollection = async (db: Firestore) => {
+  const usersCollection = collection(db, 'Users');
+  const usersSnapshot = await getDocs(usersCollection);
+  const usersList = usersSnapshot.docs.map(doc => doc.data());
+
+  return usersList;
 };
 
 /**
