@@ -2,8 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../page.module.css";
-import { Post } from "../../types/post";
-import { User } from "../../types/user";
+import { User, Post, Comment } from "../../types";
+
+function PostComment({ comment }: { comment: Comment }) {
+  return (
+    <div className={styles.postComment}>
+      <div className={styles.postCommentHeader}>
+        <UserCard user={comment.owner} />
+      </div>
+      <div className={styles.postCommentContent}>
+        <p>{comment.message}</p>
+      </div>
+    </div>
+  );
+};
 
 function PostTag({ tag }: { tag: string }) {
   return (

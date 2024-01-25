@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   User,
+  getAuth,
 } from "firebase/auth";
 
 import { firebaseConfig } from './firebaseConfig';

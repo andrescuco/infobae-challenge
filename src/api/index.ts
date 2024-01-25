@@ -10,8 +10,15 @@
 //   where,
 // } from 'firebase/firestore';
 import axios from 'axios'
+import { auth } from '../firebase/firebaseConfig';
 
 import { Post } from '../types/post';
+
+/**
+ * Lists all users from Firestore.
+ */
+export const listFirestoreUsers = async () => {
+};
 
 /**
  * Gets all posts from the api.
