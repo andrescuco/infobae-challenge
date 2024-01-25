@@ -8,7 +8,7 @@ import axios from 'axios'
 import { Post } from '../types/post';
 
 /**
- * Lists all users from Firestore.
+ * Lists all users from Firestore non-relational DB.
  */
 export const getFirestoreUsersCollection = async (db: Firestore) => {
   const usersCollection = collection(db, 'Users');

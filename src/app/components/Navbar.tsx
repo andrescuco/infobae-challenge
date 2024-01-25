@@ -1,11 +1,11 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import styles from "../page.module.css";
 import { useFirebase } from "@/firebase";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import styles from "../page.module.css";
 
 export default function Navbar() {
   const router = useRouter();
@@ -15,9 +15,9 @@ export default function Navbar() {
   const handleSignIn = async () => {
     try {
       await googleSignIn();
-      // Redirect to /admin
       router.push("/admin");
     } catch (error) {
+      // In a real app, we would save the error to a log file...
       console.log(error);
     }
   };
@@ -26,6 +26,7 @@ export default function Navbar() {
     try {
       await logOut();
     } catch (error) {
+      // In a real app, we would save the error to a log file...
       console.log(error);
     }
   };

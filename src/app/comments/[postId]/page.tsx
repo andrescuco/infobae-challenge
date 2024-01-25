@@ -1,6 +1,6 @@
-import { getPostCommentsById } from "@/api";
-import { PostComment } from "@/app/components/PostContainer";
 import { Comment } from "@/types";
+import { PostComment } from "@/app/components/PostComment";
+import { getPostCommentsById } from "@/api";
 import styles from "../../page.module.css";
 
 export default async function CommentsPage({
@@ -10,7 +10,7 @@ export default async function CommentsPage({
     postId: string;
   };
 }) {
-  const comments = await getPostCommentsById(params.postId as string);
+  const comments = await getPostCommentsById(params.postId);
 
   return (
     <div className={styles.postCommentsContainer}>

@@ -44,10 +44,10 @@ const FirebaseProvider = ({ children }: FirebaseProvider): ReactElement => {
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-
-    // If it's a new user, save it to the collection
     signInWithPopup(auth, provider)
       .then(async (result) => {
+        // We're saving the users to a Firestore collection to be able to
+        // retrieve them as admins
         await setDoc(doc(firebase.db, "Users", result.user.uid), {
           name: result.user.displayName,
           email: result.user.email,
@@ -55,6 +55,7 @@ const FirebaseProvider = ({ children }: FirebaseProvider): ReactElement => {
         });
       })
       .catch((error) => {
+        // In a real app, we would save the error to a log file...
         console.log(error);
       });
   };

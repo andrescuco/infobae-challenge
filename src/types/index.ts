@@ -1,3 +1,3 @@
-export { User } from "./user";
-export { Post } from "./post";
-export { Comment } from "./comment";
+export type { User } from "./user";
+export type { Post } from "./post";
+export type { Comment } from "./comment";

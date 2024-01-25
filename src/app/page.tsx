@@ -1,5 +1,4 @@
 import styles from "./page.module.css";
-import Navbar from "./components/Navbar";
 import PostContainer from "./components/PostContainer";
 import { getPosts } from "../api";
 
