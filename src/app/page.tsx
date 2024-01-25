@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { getPosts, getUsers, getPostsByTag } from "../api";
 import Navbar from "./components/Navbar";
+import PostContainer from "./components/PostContainer";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -33,12 +34,7 @@ export default async function Home() {
           {/*   /> */}
           {/* </a> */}
       {posts.map((post) => {
-          return (
-              <div key={post.id}>
-              <h1>{post.owner.firstName}</h1>
-              <p>{post.text}</p>
-              </div>
-              );
+          return <PostContainer post={post} />
           })}
         </div>
       </div>
