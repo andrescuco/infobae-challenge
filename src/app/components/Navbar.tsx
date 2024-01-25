@@ -2,20 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import { useFirebase } from "@/firebase";
 import styles from "../page.module.css";
 
 export function Navbar() {
-  const router = useRouter();
   const { user, googleSignIn, logOut } = useFirebase();
   const [loading, setLoading] = useState(true);
 
   const handleSignIn = async () => {
     try {
       await googleSignIn();
-      router.push("/admin");
+      setLoading(false);
     } catch (error) {
       // In a real app, we would save the error to a log file...
       console.log(error);
@@ -25,6 +23,7 @@ export function Navbar() {
   const handleSignOut = async () => {
     try {
       await logOut();
+      setLoading(false);
     } catch (error) {
       // In a real app, we would save the error to a log file...
       console.log(error);
