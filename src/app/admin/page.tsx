@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 
+import styles from "../page.module.css";
 import { getFirestoreUsersCollection } from "@/api";
 import { useCallback, useEffect, useState } from "react";
 import { useFirebase } from "@/firebase";
@@ -38,7 +39,7 @@ export default function Admin() {
         name: string;
       }) => {
         return (
-          <div key={user.email}>
+          <div key={user.email} className={styles.adminUser}>
             <Image
               src={user.photoURL}
               alt={`Picture of ${user.name}`}
@@ -46,8 +47,8 @@ export default function Admin() {
               height={40}
               priority
             />
-            <p>{user.email}</p>
-            <p>{user.name}</p>
+            <span>{user.name}</span>
+            <span>{user.email}</span>
           </div>
         );
       })}
